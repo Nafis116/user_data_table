@@ -10,21 +10,27 @@ export class Table extends Component {
     tHead:['ID', 'Заголовок', 'Описание'],
   }
 
-  componentDidMount() {
-      const state = store.getState();
-      this.setState({
-        searchLine: state.searchLine
-      });
 
-      fetch('https://jsonplaceholder.typicode.com/posts')
-      .then(resp => {
-        return resp.json();
-      })
-      .then(data => {
-        this.setState({
-          dataArr: data
-        })
-      });
+  async data() {
+    let resp = await fetch('https://jsonplaceholder.typicode.com/posts')
+    let data = await resp.json()
+    this.setState({
+      dataArr: data
+    })
+    store.dispatch({
+      type: "USERS_DATA",
+      payload:{
+        dataArr: this.state.dataArr
+      }
+    })
+  }
+
+  componentDidMount() {
+    this.data();
+    const state = store.getState();
+    this.setState({
+      searchLine: state.searchLine
+    });
   }
 
   render() {

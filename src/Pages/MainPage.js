@@ -14,7 +14,7 @@ export class MainPage extends Component {
     currentPage: 0
   }
 
-  omponentDidMount(){    
+  componentDidMount(){    
     document.addEventListener("keydown", this.escFunction, false); 
 
     const state = store.getState();
@@ -22,22 +22,14 @@ export class MainPage extends Component {
       dataArr: state.dataArr 
     });
 
+
     store.subscribe(() => {
       const state = store.getState();
       this.setState({ 
         dataArr: state.dataArr 
       });
-    });
-    console.log(this.state.dataArr)
-
-    fetch('https://jsonplaceholder.typicode.com/posts')
-    .then(resp => {
-      return resp.json();
-    })
-    .then(data => {
-      this.setState({
-        dataArr: data
-      })
+      // console.log(state)
+      // console.log(this.state)
     });
   };
 
@@ -58,7 +50,7 @@ export class MainPage extends Component {
           nextLabel={'Далее'}
           breakLabel={'...'}
           breakClassName={'break-me'}
-          pageCount={this.state.pageCount}
+          pageCount={5}
           marginPagesDisplayed={2}
           pageRangeDisplayed={5}
           onPageChange={this.pageChangeHandler}
@@ -70,6 +62,7 @@ export class MainPage extends Component {
           nextClassName="page-item"
           previousLinkClassName="page-link"
           nextLinkClassName="page-link"
+          forcePage={this.state.currentPage}
           /> : null
         }
         
