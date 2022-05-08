@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Moon+Dance&family=Mulish:wght@300;400&family=Roboto&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  width: 631px;
+  height: 52px;
+  background: #5A5C66;
+  padding-left: 26px;
+  padding-right: 16px;
+}
+
+.search-box__form {
+  display: flex;
+  justify-content: space-between;
+  width: 589px;
+}
+
+.search-box__form-input {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 137.69%;
+  color: #B3B7BF;
+  background: #5A5C66;
+  outline: none;
+  border: 0;
+  width: 550px
+}
+
+.search-box__form-submit {
+  background: #5A5C66;
+  cursor: pointer;
+  border: 0;
+}
